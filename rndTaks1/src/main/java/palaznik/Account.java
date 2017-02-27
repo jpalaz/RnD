@@ -18,13 +18,13 @@ public class Account {
         }
         balance -= sum;
         LOGGER.info("withdraw ${}, SUCCESS, current balance: {}", sum, balance);
-        notifyAll();
+//        notify();
     }
 
     public synchronized void deposit(int sum) throws InterruptedException {
         balance += sum;
         LOGGER.info("deposit ${}, SUCCESS, current balance: {}", sum, balance);
-        TimeUnit.MICROSECONDS.sleep(10);
-        notifyAll();
+        TimeUnit.MILLISECONDS.sleep(10);
+        notify();
     }
 }
